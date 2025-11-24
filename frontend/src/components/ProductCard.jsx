@@ -27,7 +27,7 @@ const ProductCard = ({ product }) => {
 
         {/* Shopee Favorite Badge */}
         <div className="absolute top-2 left-0 bg-[#ee4d2d] text-white text-xs px-2 py-1 font-semibold">
-          Shopee ชอบ
+          สินค้าขายดี
         </div>
       </div>
 

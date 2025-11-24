@@ -1,3 +1,37 @@
 from django.contrib import admin
+from .models import Order, OrderItem
 
-# Register your models here.
+class OrderItemInline(admin.TabularInline):
+    model = OrderItem
+    extra = 0
+    readonly_fields = ['subtotal']
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ['order_number', 'user', 'full_name', 'total', 
+                    'status', 'payment_method', 'payment_status', 'created_at']
+    list_filter = ['status', 'payment_method', 'payment_status', 'created_at']
+    search_fields = ['order_number', 'full_name', 'phone']
+    readonly_fields = ['order_number', 'created_at', 'updated_at']
+    inlines = [OrderItemInline]
+    
+    fieldsets = (
+        ('ข้อมูลคำสั่งซื้อ', {
+            'fields': ('order_number', 'user', 'status')
+        }),
+        ('ข้อมูลการจัดส่ง', {
+            'fields': ('full_name', 'phone', 'address', 'city', 'district', 'postal_code')
+        }),
+        ('ข้อมูลการชำระเงิน', {
+            'fields': ('payment_method', 'payment_status', 'subtotal', 
+                      'shipping_fee', 'discount', 'total')
+        }),
+        ('เวลา', {
+            'fields': ('created_at', 'updated_at')
+        }),
+    )
+
+@admin.register(OrderItem)
+class OrderItemAdmin(admin.ModelAdmin):
+    list_display = ['order', 'product_name', 'quantity', 'product_price', 'subtotal']
+    list_filter = ['order__status']

@@ -1,7 +1,7 @@
-import Navbar from '@/components/Navbar';
-import CategoryGrid from '../components/CategoryGrid.jsx';
-import BannerCarousel from '../components/BannerCarousel.jsx';
-import ProductList from '../components/ProductList.jsx';
+import Navbar from '../components/Navbar';
+import CategoryGrid from '../components/CategoryGrid';
+import BannerCarousel from '../components/BannerCarousel';
+import ProductList from '../components/ProductList';
 
 const HomePage = () => {
   return (
@@ -17,7 +17,7 @@ const HomePage = () => {
       {/* Categories */}
       <CategoryGrid />
 
-      {/* Flash Sale Section (Optional - ถ้าต้องการ) */}
+      {/* Flash Sale Section */}
       <div className="container mx-auto px-4 py-6">
         <div className="bg-white p-6 shadow-sm">
           <div className="flex items-center justify-between mb-4">
