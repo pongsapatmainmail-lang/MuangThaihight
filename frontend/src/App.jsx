@@ -8,11 +8,12 @@ import ProductDetailPage from './pages/ProductDetailPage.jsx';
 import CartPage from './pages/CartPage.jsx';
 import CheckoutPage from './pages/CheckoutPage.jsx';
 import SearchPage from './pages/SearchPage.jsx';
-import './index.css';
 import OrdersPage from './pages/OrdersPage.jsx';
 import OrderDetailPage from './pages/OrderDetailPage.jsx';
 import CreateShopPage from './pages/CreateShopPage.jsx';
 import SellerDashboardPage from './pages/SellerDashboardPage.jsx';
+import SellerProductsPage from './pages/SellerProductsPage.jsx'; // ⭐ เพิ่มบรรทัดนี้
+import './index.css';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/orders/:id" element={<OrderDetailPage />} />
             <Route path="/seller/create-shop" element={<CreateShopPage />} />
             <Route path="/seller/dashboard" element={<SellerDashboardPage />} />
+            <Route path="/seller/products" element={<SellerProductsPage />} /> {/* ⭐ เพิ่มบรรทัดนี้ */}
           </Routes>
         </Router>
       </CartProvider>
